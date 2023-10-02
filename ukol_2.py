@@ -2249,5 +2249,5 @@ for item in staty:
     if item["region"] == region_dotaz:
         print(item["name"])
         i += 1
-if i == 0: # pokud program nenalezl žádnou shodu zůstává i = 0 a region je tudíý neznámý
+if i == 0: # pokud program nenalezl žádnou shodu zůstává i = 0 a region je tudíž neznámý
     print("Neznámý region.")
