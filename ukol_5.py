@@ -55,7 +55,5 @@ for den in teploty: #vytvoření slovníku s průměnýma hodnotama za pomocí c
 for den in teploty2: #vytvořím si ze seznamu slovník, kdy klíčem jsou dny v týdnu a hodnotami teploty měřené během dne
     teploty_dict[den[0]] = den[1:]
 
-print(teploty_dict)
-
 prumer2 = {den:f"{statistics.mean(teplota):0.2f}°C" for den, teplota in teploty_dict.items()}
-print(prumer2)
+print(f"Průměrné teploty: {prumer2}")
