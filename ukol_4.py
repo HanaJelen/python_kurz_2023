@@ -14,7 +14,7 @@
 
 import math
 
-def overeni(cislo: int) -> bool:
+def overeni(cislo: str) -> bool:
     if " " in cislo: # prověřuji, zda se nevskytuje v řetězci mezera, která je brána taktéž jako znak, a popřípaději ji v dalším kroku odstaňuji
         cislo = cislo.replace(" ","")
     if len(cislo) == 9: #telefonní číslo zadáno bez předvolby
@@ -22,11 +22,9 @@ def overeni(cislo: int) -> bool:
     elif len(cislo) == 13:
         if cislo[0:4] == "+420": #zadáno s předvolbou
             return(True)
-        else:
-            return(False)
-    else:
         return(False)
-
+    return(False)
+ 
 def cena (zprava: str) -> int:
     cena = (math.ceil(len(zprava)/180))*3 #zaokrouhlení nahoru, pro správně nacenění zprávy
     return(cena)
