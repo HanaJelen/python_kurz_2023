@@ -34,12 +34,12 @@ heslo = input("Zadejte heslo: ")
 mail = input("Zadejte e-mail: ")
 
 #vložení txt dokumentu pro ověřování zadých adres i ve VSC
-'''
+
 soubor = open("mail.txt", mode = "r", encoding="utf-8")
 maily = soubor.read()
-mail = maily.split("\n")
+mail_list = maily.split("\n")
 soubor.close()
-'''
+
 
 regularni_vyraz = re.compile(r"\w{6,10}")#vyraz hledá v UNICODE
 rv_jmeno = regularni_vyraz.fullmatch(jmeno)
@@ -55,7 +55,7 @@ if rv_heslo:
 else:
     print("Heslo bylo zadáno špatně.")
 
-regularni_vyraz3 = re.compile(r"^\"?\w+[\.\+\-]?\w+\"?@(\w+\.?\-?\w+\.\w+[^w.b]$|\[?(\d\d\d\.){3}\d\d\d]?$)",flags=re.ASCII)#výraz hledá pouze v ASCII
+regularni_vyraz3 = re.compile(r"^\"?\w+[\.\+\-]?\w+\"?@(\w+\.?\-?\w+\.(?!web)\w+$|\[?(\d\d\d\.){3}\d\d\d]?$)",flags=re.ASCII)#výraz hledá pouze v ASCII
 rv_mail = regularni_vyraz3.match(mail)
 if rv_mail:
     print("Zadaný e-mail je v pořádku.")
@@ -63,8 +63,8 @@ else:
     print("E-mail byl zadán špatně.")
 
 #zde je cyklus pro prověřovní zadaných adres ve VSC
-'''    
-for item in mail:
+    
+for item in mail_list:
     rv_mail = regularni_vyraz3.match(item)
     print(rv_mail)
-'''
+
